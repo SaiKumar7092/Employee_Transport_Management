@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import transport.mangement.system.cab.Cab;
 
@@ -34,6 +35,7 @@ public class Employee {
 	private String address;
 	/** Variable for employee */
 	@OneToOne(mappedBy = "emp")
+	@JsonIgnore
 	private Cab cab;
 	
 	/**

@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import transport.mangement.system.employee.Employee;
 
 /**
@@ -14,6 +17,7 @@ import transport.mangement.system.employee.Employee;
  *
  */
 @Entity
+@JsonIgnoreProperties(value = { "employee" })
 public class Cab {
 
 	/** Variable for cabId */
@@ -22,6 +26,7 @@ public class Cab {
 	/** Variable for registrationNumber */
 	private String registrationNumber;
 	/** Variable for driverId */
+	@JsonIgnore
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "driverId")
 	private Employee emp;
